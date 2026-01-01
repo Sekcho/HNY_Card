@@ -114,8 +114,34 @@ class CardGenerator:
         html_url = f'file:///{html_filepath.replace(chr(92), "/")}'
 
         async with async_playwright() as p:
-            # Launch browser
-            browser = await p.chromium.launch()
+            # Launch browser with headless mode
+            # Set channel to 'chromium' to use system chromium if available
+            try:
+                browser = await p.chromium.launch(
+                    headless=True,
+                    args=[
+                        '--no-sandbox',
+                        '--disable-setuid-sandbox',
+                        '--disable-dev-shm-usage',
+                        '--disable-accelerated-2d-canvas',
+                        '--disable-gpu'
+                    ]
+                )
+            except Exception as e:
+                # If launch fails, try to install browsers first
+                import subprocess
+                subprocess.run(['playwright', 'install', 'chromium'], check=False)
+                browser = await p.chromium.launch(
+                    headless=True,
+                    args=[
+                        '--no-sandbox',
+                        '--disable-setuid-sandbox',
+                        '--disable-dev-shm-usage',
+                        '--disable-accelerated-2d-canvas',
+                        '--disable-gpu'
+                    ]
+                )
+
             page = await browser.new_page(
                 viewport={'width': 900, 'height': 1400}
             )
