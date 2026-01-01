@@ -6,10 +6,8 @@ set -o errexit
 pip install -r requirements.txt
 
 # Install Playwright browsers (only Chromium to save space)
-playwright install chromium
-
-# Install system dependencies for Playwright
-playwright install-deps chromium
+# Note: Render has pre-installed system dependencies for browsers
+PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD=0 playwright install chromium --with-deps
 
 # Create necessary directories
 mkdir -p static/uploads
