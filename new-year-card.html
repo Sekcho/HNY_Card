@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy New Year 2026 - เสกศักดิ์ ช่อปลอด</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Noto+Sans+Thai:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans Thai', sans-serif;
+            background: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .card-container {
+            max-width: 900px;
+            width: 100%;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #0a0a0a 100%);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 40px 100px rgba(0, 0, 0, 0.8);
+        }
+
+        /* Animated background gradient */
+        .card-container::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 80%, rgba(251, 191, 36, 0.08) 0%, transparent 50%);
+            animation: gradientMove 15s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        @keyframes gradientMove {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            50% { transform: translate(-10%, -10%) rotate(180deg); }
+        }
+
+        /* AI-inspired geometric patterns */
+        .geometric-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.15;
+            pointer-events: none;
+        }
+
+        .geo-line {
+            position: absolute;
+            background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.3), transparent);
+            height: 1px;
+            width: 100%;
+            animation: lineMove 8s linear infinite;
+        }
+
+        .geo-line:nth-child(1) { top: 20%; animation-delay: 0s; }
+        .geo-line:nth-child(2) { top: 40%; animation-delay: 2s; }
+        .geo-line:nth-child(3) { top: 60%; animation-delay: 4s; }
+        .geo-line:nth-child(4) { top: 80%; animation-delay: 6s; }
+
+        @keyframes lineMove {
+            0% { transform: translateX(-100%); opacity: 0; }
+            50% { opacity: 1; }
+            100% { transform: translateX(100%); opacity: 0; }
+        }
+
+        /* Glowing particles */
+        .particle-container {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .glow-particle {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(2px);
+            animation: particleFloat 10s infinite;
+        }
+
+        .glow-particle.blue {
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.6), transparent);
+        }
+
+        .glow-particle.gold {
+            background: radial-gradient(circle, rgba(251, 191, 36, 0.6), transparent);
+        }
+
+        @keyframes particleFloat {
+            0%, 100% { transform: translateY(0) translateX(0); opacity: 0.3; }
+            50% { transform: translateY(-30px) translateX(20px); opacity: 0.8; }
+        }
+
+        .card-content {
+            position: relative;
+            padding: 80px 60px;
+            z-index: 2;
+        }
+
+        /* Photo section with modern frame */
+        .photo-section {
+            position: relative;
+            max-width: 600px;
+            margin: 0 auto 60px;
+        }
+
+        .photo-frame {
+            position: relative;
+            padding: 8px;
+            background: linear-gradient(135deg,
+                rgba(59, 130, 246, 0.3) 0%,
+                rgba(251, 191, 36, 0.3) 100%);
+            border-radius: 4px;
+        }
+
+        .photo-frame::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 4px;
+            padding: 2px;
+            background: linear-gradient(135deg, #3b82f6, #fbbf24);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            opacity: 0.6;
+        }
+
+        .photo-inner {
+            position: relative;
+            background: #000;
+            overflow: hidden;
+        }
+
+        .photo-inner img {
+            width: 100%;
+            height: auto;
+            display: block;
+            filter: brightness(1.05) contrast(1.1);
+        }
+
+        /* Corner decorations */
+        .corner-decoration {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            border: 2px solid;
+            border-image: linear-gradient(135deg, #3b82f6, #fbbf24) 1;
+            opacity: 0.5;
+        }
+
+        .corner-tl { top: -2px; left: -2px; border-right: none; border-bottom: none; }
+        .corner-tr { top: -2px; right: -2px; border-left: none; border-bottom: none; }
+        .corner-bl { bottom: -2px; left: -2px; border-right: none; border-top: none; }
+        .corner-br { bottom: -2px; right: -2px; border-left: none; border-top: none; }
+
+        /* Content section */
+        .content-section {
+            text-align: center;
+            position: relative;
+        }
+
+        .year-badge {
+            display: inline-block;
+            padding: 8px 32px;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(251, 191, 36, 0.2));
+            border: 1px solid rgba(251, 191, 36, 0.3);
+            border-radius: 50px;
+            margin-bottom: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .year-badge::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            animation: shine 3s infinite;
+        }
+
+        @keyframes shine {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        .year-badge span {
+            font-family: 'Poppins', sans-serif;
+            font-size: 36px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #3b82f6 0%, #fbbf24 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: 8px;
+        }
+
+        .main-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 72px;
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #ffffff 0%, #a0a0a0 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            position: relative;
+        }
+
+        .main-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #3b82f6, #fbbf24, transparent);
+        }
+
+        .thai-title {
+            font-family: 'Noto Sans Thai', sans-serif;
+            font-size: 48px;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 60px;
+            letter-spacing: 2px;
+            text-shadow: 0 0 30px rgba(59, 130, 246, 0.5);
+        }
+
+        .divider {
+            width: 80px;
+            height: 2px;
+            background: linear-gradient(90deg, #3b82f6, #fbbf24);
+            margin: 40px auto;
+            position: relative;
+        }
+
+        .divider::before,
+        .divider::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #fbbf24;
+        }
+
+        .divider::before { left: -12px; }
+        .divider::after { right: -12px; }
+
+        .wishes {
+            max-width: 700px;
+            margin: 0 auto 60px;
+        }
+
+        .wishes p {
+            font-family: 'Noto Sans Thai', sans-serif;
+            font-size: 20px;
+            line-height: 2;
+            color: #d1d5db;
+            margin-bottom: 20px;
+            font-weight: 300;
+        }
+
+        .signature-section {
+            margin-top: 80px;
+            position: relative;
+        }
+
+        .signature-line {
+            width: 200px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(251, 191, 36, 0.5), transparent);
+            margin: 0 auto 30px;
+        }
+
+        .signature-name {
+            font-family: 'Noto Sans Thai', sans-serif;
+            font-size: 36px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #fbbf24 0%, #3b82f6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: 1px;
+            position: relative;
+        }
+
+        /* Accent elements */
+        .accent-dot {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: #3b82f6;
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(59, 130, 246, 0.8);
+        }
+
+        @media (max-width: 768px) {
+            .card-content {
+                padding: 60px 30px;
+            }
+
+            .main-title {
+                font-size: 48px;
+            }
+
+            .thai-title {
+                font-size: 36px;
+            }
+
+            .wishes p {
+                font-size: 18px;
+            }
+
+            .signature-name {
+                font-size: 28px;
+            }
+
+            .year-badge span {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="card-container">
+        <!-- Geometric Background -->
+        <div class="geometric-bg">
+            <div class="geo-line"></div>
+            <div class="geo-line"></div>
+            <div class="geo-line"></div>
+            <div class="geo-line"></div>
+        </div>
+
+        <!-- Particle Container -->
+        <div class="particle-container">
+            <div class="glow-particle blue" style="width: 60px; height: 60px; top: 10%; left: 15%; animation-delay: 0s;"></div>
+            <div class="glow-particle gold" style="width: 40px; height: 40px; top: 20%; right: 20%; animation-delay: 2s;"></div>
+            <div class="glow-particle blue" style="width: 50px; height: 50px; bottom: 25%; left: 10%; animation-delay: 4s;"></div>
+            <div class="glow-particle gold" style="width: 45px; height: 45px; bottom: 15%; right: 15%; animation-delay: 6s;"></div>
+            <div class="glow-particle blue" style="width: 35px; height: 35px; top: 50%; left: 5%; animation-delay: 3s;"></div>
+            <div class="glow-particle gold" style="width: 55px; height: 55px; top: 60%; right: 8%; animation-delay: 5s;"></div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="card-content">
+            <!-- Photo Section -->
+            <div class="photo-section">
+                <div class="photo-frame">
+                    <div class="corner-decoration corner-tl"></div>
+                    <div class="corner-decoration corner-tr"></div>
+                    <div class="corner-decoration corner-bl"></div>
+                    <div class="corner-decoration corner-br"></div>
+
+                    <div class="photo-inner">
+                        <img src="photo.jpg.jpg" alt="เสกศักดิ์ ช่อปลอด">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Content Section -->
+            <div class="content-section">
+                <div class="accent-dot" style="top: 0; left: 50%; transform: translateX(-50%);"></div>
+
+                <div class="year-badge">
+                    <span>2026</span>
+                </div>
+
+                <h1 class="main-title">HAPPY NEW YEAR</h1>
+                <h2 class="thai-title">สวัสดีปีใหม่ 2569</h2>
+
+                <div class="divider"></div>
+
+                <div class="wishes">
+                    <p>ขอให้ปีนี้ เป็นปีแห่งความก้าวหน้า ความมั่นคง<br>และความสำเร็จในทุกภารกิจที่ตั้งใจ</p>
+                    <p>ขอให้ทุกท่านมีพลังใจที่เข้มแข็ง พร้อมความสุข<br>ความราบรื่น และการเติบโตที่ดีตลอดไป</p>
+                </div>
+
+                <div class="signature-section">
+                    <div class="signature-line"></div>
+                    <div class="signature-name">เสกศักดิ์ ช่อปลอด</div>
+                </div>
+
+                <div class="accent-dot" style="bottom: 0; left: 50%; transform: translateX(-50%);"></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
